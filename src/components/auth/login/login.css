@@ -1,0 +1,29 @@
+.login {
+  min-height: 100vh;
+}
+
+.main-copy {
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)),
+    url("../../../assets/doc.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.form-fields {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-input {
+  height: 3em;
+}
+
+.custom-button {
+  padding: 1.5em 0;
+  font-weight: bold;
+  font-family: var(--primary-font-family);
+}
+
+
