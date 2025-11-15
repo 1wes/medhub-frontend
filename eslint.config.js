@@ -20,8 +20,8 @@ export default defineConfig([
       globals: globals.browser,
     },
     rules: {
-      semi: ["error", "never"],
-      quotes: ["error", "single"],
+      semi: ["error", "always"],
+      quotes: ["warn", "double"],
       "no-console": "error",
       "@typescript-eslint/no-unused-vars": [
         "warn",
