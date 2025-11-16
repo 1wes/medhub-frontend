@@ -110,6 +110,18 @@ const PatientDetailsPage: React.FC = () => {
       dataIndex: "prescribed_medications",
       key: "prescribed_medications",
     },
+    {
+      title: "Action",
+      key: "action",
+      render: (_: any, record: any) => (
+        <Button
+          type="primary"
+          onClick={() => navigate(`/visits/${record.uuid}`)}
+        >
+          View visit
+        </Button>
+      ),
+    },
   ];
 
   const showModal = () => setIsModalVisible(true);
@@ -324,7 +336,7 @@ const PatientDetailsPage: React.FC = () => {
           </Form.Item>
 
           <Form.Item>
-            <Space>
+            <Space style={{ display: "flex", justifyContent: "flex-end" }}>
               <Button onClick={handleCancel}>Cancel</Button>
               <Button type="primary" htmlType="submit">
                 Add Visit
