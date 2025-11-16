@@ -70,7 +70,7 @@ const LoginComponent: React.FC = () => {
 
         setTimeout(() => {
           navigate("/");
-        }, 2000);
+        }, 900);
       })
       .catch((err) => {
         const msg = err.response?.data?.message;
