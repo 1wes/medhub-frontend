@@ -7,6 +7,7 @@ import { useAuthRedirect } from "../../hooks/useAuth";
 import MhBreadcrumb from "../breadcrumb/breadcrumb";
 import { sidebarItems } from "../../config/sidebar";
 import { Link } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const { Header, Content, Sider } = Layout;
 
@@ -18,6 +19,15 @@ const menuItems: MenuProps["items"] = sidebarItems.map((item) => ({
 
 const MainLayout: React.FC = () => {
   useAuthRedirect();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const activeItem = sidebarItems.find(
+    (item) =>
+      location.pathname === item.href ||
+      location.pathname.startsWith(item.href + "/")
+  );
+
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -50,8 +60,11 @@ const MainLayout: React.FC = () => {
           >
             <Menu
               mode="inline"
-              defaultSelectedKeys={["1"]}
-              defaultOpenKeys={["sub1"]}
+              selectedKeys={[activeItem ? activeItem.key : "1"]}
+              onClick={(e) => {
+                const clicked = sidebarItems.find((item) => item.key === e.key);
+                if (clicked) navigate(clicked.href);
+              }}
               style={{
                 minHeight: "80vh",
                 fontFamily: "var(--primary-font-family)",

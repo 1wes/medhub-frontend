@@ -7,16 +7,13 @@ const MhBreadcrumb: React.FC = () => {
   const pathname = location.pathname;
   const paths = pathname.split("/").filter(Boolean);
 
-  // Capitalize first letter
-  const capitalize = (str: string) =>
-    str.charAt(0).toUpperCase() + str.slice(1);
   const breadcrumbItems = [
     {
       title: "Home",
       href: "/",
     },
     ...paths.map((path, index) => ({
-      title: capitalize(path),
+      title: path,
       href: "/" + paths.slice(0, index + 1).join("/"),
     })),
   ];
