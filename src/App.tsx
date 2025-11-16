@@ -7,6 +7,7 @@ import MhPatients from "./components/patients/patients";
 import MhVisits from "./components/visits/visits";
 import MhAddPatientForm from "./components/patients/new-patient";
 import MhPatientDetails from "./components/patients/patient-details";
+import MhVisitDetails from "./components/visits/visit-details";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="patients/new-patient" element={<MhAddPatientForm />} />
             <Route path="/visits" element={<MhVisits />} />
             <Route path="/patients/:uuid" element={<MhPatientDetails />} />
+            <Route path="/visits/:uuid" element={<MhVisitDetails />} />
           </Route>
         </Routes>
       </BrowserRouter>
